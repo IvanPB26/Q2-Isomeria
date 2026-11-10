@@ -251,7 +251,7 @@ const avail = (s, m) => m === 'sim' ? ITEMS.some(i => i.sec === s && i.m !== 'ge
 
 function setSeg(id, attr, val){ document.querySelectorAll(`#${id} button`).forEach(b => b.classList.toggle('on', b.dataset[attr] === val)); }
 function refreshModes(){
-  document.querySelectorAll('#segMode button').forEach(b => b.disabled = !avail(sec, b.dataset.m));
+  document.querySelectorAll('#segMode button').forEach(b => b.style.display = avail(sec, b.dataset.m) ? '' : 'none');
   if (!avail(sec, mode)) mode = ['par','cs','vf'].find(m => avail(sec, m));
   setSeg('segMode', 'm', mode);
   $('#rowResp').style.display = ['par','bus','gen'].includes(mode) ? '' : 'none';
