@@ -297,7 +297,7 @@ function rPar(it, box, exam, done){
   box.innerHTML = head(it) + `<p class="prompt">¿Son isómeros? Si lo son, ¿de qué tipo?</p>
    <div class="pair">${cmpBox(it.a)}<span class="op">y</span>${cmpBox(it.b)}</div>` +
    (typing ? `<div class="wbox"><input id="win" placeholder="cadena, posición, función, geométrica o no" autocomplete="off"><button class="btn pri" id="wok">Comprobar</button></div><p class="note">Escribe solo el tipo (por ejemplo: «posición») o «no» si no son isómeros.</p>`
-           : `<div class="opts sm">${['cadena','posicion','funcion','geometrica','no'].map(t => `<button class="opt txt" data-t="${t}">${t === 'no' ? 'No son isómeros' : 'De ' + TIPO[t].replace(/^de /,'')}</button>`).join('')}</div>`) +
+           : `<div class="opts sm">${['cadena','posicion','funcion','geometrica','no'].map(t => `<button class="opt txt" data-t="${t}">${t === 'no' ? 'No son isómeros' : t === 'geometrica' ? 'Geométrica (cis-trans)' : 'De ' + TIPO[t].replace(/^de /,'')}</button>`).join('')}</div>`) +
    `<div class="fb"></div>`;
   const expl = relTxt(it.a, it.b, it.t);
   const sumy = `${NAME(it.a)} / ${NAME(it.b)}`;
